@@ -2,10 +2,29 @@
   "name": "simple-crud-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|css|html|md)\"",
+    "format:check": "prettier --ignore-path .gitignore --list-different \"**/*.+(js|json|css|html|md)\"",
+    "lint:check": "eslint --ignore-path .gitignore .",
+    "test": "jest",
+    "pre-commit-hook": "lint-staged",
+    "githook:init": "echo \"#!/bin/sh \n\nnpm run pre-commit-hook \" > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit",
+    "postinstall": "npm run githook:init"
+  },
+  "lint-staged": {
+    "**/*.+(js|json|css|html|md)": [
+      "prettier --list-different"
+    ],
+    "**/*.+(js)": [
+      "eslint"
+    ]
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.4.1"
+  }
 }
