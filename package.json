@@ -2,6 +2,7 @@
   "name": "simple-crud-api",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
     "start": "is-ci \"start:prod\" \"start:dev\"",
     "start:dev": "webpack --mode=development --watch",
@@ -26,10 +27,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.16.0",
     "babel-jest": "^27.3.1",
-    "babel-loader": "^8.2.3",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^25.3.0",

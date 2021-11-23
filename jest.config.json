@@ -1,3 +1,12 @@
 {
-  "testMatch": ["**/*.test.js"]
+  "testEnvironment": "jest-environment-node",
+  "testMatch": ["**/*.test.js"],
+  "transform": {
+    "\\.js$": [
+      "babel-jest",
+      {
+        "plugins": ["@babel/plugin-transform-modules-commonjs"]
+      }
+    ]
+  }
 }
