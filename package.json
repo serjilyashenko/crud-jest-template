@@ -16,7 +16,8 @@
   },
   "lint-staged": {
     "**/*.+(js|json|css|html|md)": [
-      "prettier --list-different"
+      "prettier --list-different",
+      "jest --findRelatedTests"
     ],
     "**/*.+(js)": [
       "eslint"
@@ -25,15 +26,21 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "babel-jest": "^27.3.1",
+    "babel-loader": "^8.2.3",
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^25.3.0",
+    "jest": "^27.3.1",
     "lint-staged": "^12.1.2",
     "nodemon-webpack-plugin": "^4.6.0",
     "prettier": "^2.4.1",
+    "webpack": "^5.64.2",
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
-    "is-ci": "^3.0.1",
-    "webpack": "^5.64.2"
+    "is-ci": "^3.0.1"
   }
 }

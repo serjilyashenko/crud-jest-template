@@ -8,5 +8,11 @@
     "ecmaVersion": 2021,
     "sourceType": "module"
   },
-  "rules": {}
+  "rules": {},
+  "overrides": [
+    {
+      "files": ["**/*.+(test.js)"],
+      "extends": ["plugin:jest/recommended"]
+    }
+  ]
 }
