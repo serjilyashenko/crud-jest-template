@@ -2,7 +2,6 @@
   "name": "simple-crud-api",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
     "start": "is-ci \"start:prod\" \"start:dev\"",
     "start:dev": "webpack --mode=development --watch",
