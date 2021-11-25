@@ -1,5 +1,6 @@
 import http from 'http'
-import {personController} from './api/person/controller'
+import {personsController} from './controllers/persons-controller'
+import {personController} from './controllers/person-controller'
 
 function requestListener(request, response) {
   request.on('error', err => {
@@ -10,14 +11,17 @@ function requestListener(request, response) {
 
   const url = new URL(request.url, `http://${request.headers.host}`)
 
-  switch (url.pathname) {
-    case '/persons':
-      personController(request, response)
-      break
-    default:
-      response.writeHead(404)
-      response.end('404: Not Found')
+  if (url.pathname === '/persons') {
+    personsController(request, response)
+    return
   }
+  if (url.pathname.startsWith('/persons')) {
+    personController(request, response)
+    return
+  }
+
+  response.writeHead(404)
+  response.end('404: Not Found')
 }
 
 const server = http.createServer(requestListener)
