@@ -48,7 +48,7 @@ test('e2e scenario 1', async () => {
   expect(updatedPersonResponse.body).toEqual(updatedPersonBody)
 
   const deleteResponse = await deleteRequest(`/persons/${personId}`)
-  expect(deleteResponse.status).toBe(200)
+  expect(deleteResponse.status).toBe(204)
   expect(deleteResponse.body).toBeNull()
 
   const tryPersonResponse = await getRequest(`/persons/${personId}`)

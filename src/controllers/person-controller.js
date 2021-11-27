@@ -50,7 +50,7 @@ export function personController(request, response) {
       const person = getPerson(id)
       if (person) {
         removePerson(id)
-        response.writeHead(200)
+        response.writeHead(204)
         response.end()
       } else {
         response.writeHead(404)
