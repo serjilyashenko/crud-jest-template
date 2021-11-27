@@ -18,7 +18,7 @@ export function personsController(request, response) {
           response.writeHead(201, {'Content-Type': 'application/json'})
           response.end(JSON.stringify(newPerson))
         } catch (e) {
-          response.writeHead(400)
+          response.writeHead(500)
           response.end('500: Server Error')
         }
       })

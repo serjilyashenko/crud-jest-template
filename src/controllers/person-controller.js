@@ -32,7 +32,7 @@ export function personController(request, response) {
           request.on('end', () => {
             try {
               const updatedPerson = updatePerson(id, JSON.parse(data))
-              response.writeHead(201, {'Content-Type': 'application/json'})
+              response.writeHead(200, {'Content-Type': 'application/json'})
               response.end(JSON.stringify(updatedPerson))
             } catch (e) {
               response.writeHead(400)

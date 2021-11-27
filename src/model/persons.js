@@ -57,3 +57,12 @@ export const removePerson = id => {
 
   delete persons[id]
 }
+
+export const drop = () => {
+  for (const personId in persons) {
+    // eslint-disable-next-line no-prototype-builtins
+    if (persons.hasOwnProperty(personId)) {
+      delete persons[personId]
+    }
+  }
+}

@@ -1,8 +1,7 @@
-import http from 'http'
 import {personsController} from './controllers/persons-controller'
 import {personController} from './controllers/person-controller'
 
-function requestListener(request, response) {
+export function app(request, response) {
   request.on('error', err => {
     console.error(err)
     response.writeHead(400)
@@ -23,6 +22,3 @@ function requestListener(request, response) {
   response.writeHead(404)
   response.end('404: Not Found')
 }
-
-const server = http.createServer(requestListener)
-server.listen(8080)
