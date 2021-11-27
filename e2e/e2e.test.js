@@ -28,7 +28,7 @@ test('e2e scenario 1', async () => {
   const newPersonResponse = await postRequest('/persons', personBody)
   expect(newPersonResponse.status).toBe(201)
   expect(newPersonResponse.body).toEqual(
-    expect.objectContaining({id: expect.stringContaining('-'), ...personBody}),
+    expect.objectContaining({id: expect.any(String), ...personBody}),
   )
 
   const personId = newPersonResponse.body.id
@@ -58,5 +58,5 @@ test('e2e scenario 1', async () => {
 test('e2e scenario 2', async () => {
   const emptyResponse = await getRequest('/some/non/existing/resource')
   expect(emptyResponse.status).toBe(404)
-  expect(typeof emptyResponse.body).toBe('string')
+  expect(emptyResponse.body).toEqual(expect.any(String))
 })
